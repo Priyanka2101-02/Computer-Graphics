@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include<stdlib.h>
+#include <math.h>
+
+void DDAalgo(int x1, int y1, int x2, int y2)
+{
+    int dx, dy, steps;
+    dx = x2-x1;
+    dy = y2-y1;
+    
+    if(abs(dx)>abs(dy))
+    {
+        steps = abs(dx);
+    }
+    else
+    {
+        steps = abs(dy);
+    }
+    
+    float xincrement, yincrement;
+    xincrement = dx/(float)steps;
+    yincrement = dy/(float)steps;
+    
+    
+    float x = x1, y = y1;
+    printf(" X\t\t Y  \t\t round(X)\t round(Y)\n");
+    printf("%f\t%f\t%f\t%f\n", x, y, round(x),round(y));
+    for(int i=0; i<steps; i++)
+    {
+        x+=xincrement;
+        y+=yincrement;
+        printf("%f\t%f\t%f\t%f\n", x, y, round(x),round(y));
+    }
+    
+}
+
+int main()
+{
+    int x1, y1, x2, y2;
+    printf("Enter the value of X1 and Y1 :");
+    scanf("%d%d", &x1,&y1);
+    
+    printf("Enter the value of X2 and Y2 :");
+    scanf("%d%d", &x2,&y2);
+    
+    DDAalgo(x1,y1,x2,y2);
+
+    return 0;
+}
